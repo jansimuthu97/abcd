@@ -1,0 +1,93 @@
+<form class="w3-card register"  #regform="ngForm" >
+  <h1 class="head col-xs-12">Registeration Form</h1>
+  <br>
+  <hr>
+  <div class="row">
+    <label for=""  id=""  class="col-sm-3 col-sm-offset-2 col-xs-12">Name</label>
+    <input type="text" class="col-sm-3 col-xs-12" [(ngModel)]="obj.rname" #name="ngModel" name="rename" required>
+  </div>
+  <div *ngIf="name.invalid&&(name.dirty||name.touched)" class="alert alert-text">
+    <div *ngIf="name.errors.required" class="col-sm-offset-5 col-xs-12" style=color:red>Name field should not be empty</div>
+  </div>
+  <br>
+  
+  <div class="row">
+      <label for="gender"  id=""  class="col-sm-3 col-sm-offset-2 col-xs-12 ">Gender</label>
+      <input type="radio" class="" [(ngModel)]="obj.rgender" name="gender" value="Male"   checked>Male
+      <input type="radio" class="" [(ngModel)]="obj.rgender" name="gender" value="Female" >Female
+    </div>
+  <div class="row">
+      <label for=""  id=""  class="col-sm-3 col-sm-offset-2 col-xs-12">Date of Birth</label>
+      <input type="date" class="col-sm-3 col-xs-12" [(ngModel)]="obj.rdob" #dob="ngModel" name="redob" required>
+    </div>
+    <div *ngIf="dob.invalid&&(dob.dirty||dob.touched)" class="alert alert-text">
+        <div *ngIf="dob.errors.required" class="col-sm-offset-5 col-xs-12 col-xs-offset-1" style=color:red>Date field should not be empty</div>
+      </div>
+<br>
+    <div class="row">
+        <label for="email"  id=""  class="col-sm-3   col-sm-offset-2 col-xs-12" >Email</label>
+        <input type="email" class="col-sm-3 col-xs-12" [(ngModel)]="obj.remail" #email="ngModel"  name="reemail" required>
+      </div>
+      <div *ngIf="email.invalid&&(email.dirty||email.touched)" class="alert alert-text">
+          <div *ngIf="email.errors.required" class="col-sm-offset-5 col-xs-12 col-xs-offset-1" style=color:red>Email field should not be empty</div>
+        </div>
+        <br>
+      <div class="row">
+          <label for="mbl"  id=""  class="col-sm-3 col-sm-offset-2 col-xs-12">Mobile Number</label>
+          <input type="text" class="col-sm-3 col-xs-12" [(ngModel)]="obj.rmbl" #mbl="ngModel" name="rembl" required>
+        </div>
+        <div *ngIf="mbl.invalid&&(mbl.dirty||mbl.touched)" class="alert alert-text">
+            <div *ngIf="mbl.errors.required" class="col-sm-offset-5 col-xs-12 col-xs-offset-1" style=color:red>Mobile Number field should not be empty</div>
+          </div>
+        <br>
+        <div class="row">
+            <label for="dept"  id=""  class="col-sm-3 col-sm-offset-2 col-xs-12">Department</label>
+            <select class="col-sm-3 col-xs-12"  [(ngModel)]="obj.rdept" name="redept" #dept="ngModel" required>
+              <option value="B.E CSE">BE COMPUTER</option>
+              <option value="B.TECH IT">BTECH IT</option>
+              <option value="M.E CSE">ME COMPUTER</option>
+              <option value="M.TECH IT">MTECH IT</option>
+              <option value="BSC COMPUTER">BSC COMPUTER</option>
+              <option value="MSC COMPUTER">MSC COMPUTER</option>
+              <option value="BCA">BCA</option>
+              <option value="MCA">MCA</option>
+            </select>
+          </div>
+          <div *ngIf="dept.invalid&&(dept.dirty||dept.touched)" class="alert alert-text">
+              <div *ngIf="dept.errors.required" class="col-sm-offset-5 col-xs-12 col-xs-offset-1" style=color:red>Department field should not be empty</div>
+            </div>
+          <br>
+          <div class="row">
+              <label for="percentage"  id=""  class="col-sm-3 col-sm-offset-2 col-xs-12">Percentage</label>
+              <input type="text" class="col-sm-3 col-xs-12" [(ngModel)]="obj.rpercentage"  required #percentage="ngModel"name="repercentage">
+            </div>
+            <div *ngIf="percentage.invalid&&(percentage.dirty||percentage.touched)" class="alert alert-text">
+                <div *ngIf="percentage.errors.required" class="col-sm-offset-5 col-xs-12 col-xs-offset-1" style=color:red>Percentage field should not be empty</div>
+              </div>
+            <br>
+            <div class="row">
+                <label for="backlog"  id=""  class="col-sm-3 col-sm-offset-2 col-xs-12">Is there any backlog?</label>
+                <input type="radio" class="" [(ngModel)]="obj.rbacklog" #backlog="ngModel" checked name="rebacklog" value="Yes">Yes
+                <input type="radio" class="" [(ngModel)]="obj.rbacklog" #backlog="ngModel"  name="rebacklog" value="No">No
+              </div>
+              <br>
+              <div class="row">
+                  <label for=""  id=""  class="col-sm-3 col-sm-offset-2 col-xs-12">Password</label>
+                  <input type="password" class="col-sm-3 col-xs-12" [(ngModel)]="obj.rpwd" #password="ngModel" name="rpwd" required minlength="5">
+                </div>
+                <div *ngIf="password.invalid&&(password.dirty||password.touched)" class="alert alert-text">
+                  <div *ngIf="password.errors.required" class="col-sm-offset-5 col-xs-12 col-xs-offset-1" style=color:red>Password field should not be empty</div>
+                  <div *ngIf="password.errors.minlength" class="col-sm-offset-5 col-xs-12 col-xs-offset-1" style=color:red>Password Must be atleast 5 Character</div>
+                </div>
+                <br>
+              
+              <hr>
+              <button type="submit" class="btn btn-success col-sm-offset-5 col-xs-offset-5" [disabled]="regform.invalid" (click)="register(obj)" > Register</button>
+              <hr>
+              <br>
+
+            
+          
+
+
+</form>
